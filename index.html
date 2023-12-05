@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Files and Subfolders</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1>Delete Files and Subfolders</h1>
+    <form id="deleteForm">
+        <div class="form-group">
+            <label for="directoryInput">Enter Windows Directory:</label>
+            <input type="text" class="form-control" id="directoryInput" placeholder="C:\example\directory" required>
+        </div>
+        <button type="button" class="btn btn-primary" id="submitBtn">Submit</button>
+    </form>
+    
+    <div class="mt-3">
+        <p><strong>Command:</strong> <span id="command"></span></p>
+        <button type="button" class="btn btn-secondary" id="copyBtn" data-clipboard-target="#command">Copy Command</button>
+    </div>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#submitBtn").click(function () {
+            var directory = $("#directoryInput").val();
+            var command = 'rmdir /s /q "' + directory + '"';
+            $("#command").text(command);
+        });
+
+        // Initialize Clipboard.js
+        var clipboard = new ClipboardJS('#copyBtn');
+
+        // Handle copy success
+        clipboard.on('success', function (e) {
+            alert('Command copied to clipboard!');
+            e.clearSelection();
+        });
+
+        // Handle copy error
+        clipboard.on('error', function (e) {
+            alert('Error copying command. Please manually copy it.');
+        });
+    });
+</script>
+
+</body>
+</html>
