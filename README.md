@@ -18,5 +18,3 @@
 - **AdSense Integration**: Responsive Google AdSense ads for monetization.
 - **SEO Optimized**: Includes meta tags for better search engine visibility.
 - **Accessibility**: ARIA attributes for screen reader support.
-
-## Project Structure
