@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="அரசாங்க வேலை வாய்ப்புகள் - TNPSC, RRB, IBPS மற்றும் பல துறைகளில் சென்னை, இந்தியா முழுவதும் நிர்வாக அலுவலர், ரயில்வே கிளார்க், வங்கி PO போன்ற வேலைகளை கண்டறியவும்.">
+    <meta name="keywords" content="அரசாங்க வேலைகள், வேலை தூதகன், TNPSC வேலைகள், RRB வேலைகள், IBPS வேலைகள், சென்னை வேலைகள், இந்திய அரசு வேலைகள்">
+    <meta name="robots" content="index, follow">
     <title>அரசாங்க வேலைகள் - வேலை தூதகன்</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS for Light Green Theme -->
+       <link rel="icon" href="https://blogger.googleusercontent.com/img/a/AVvXsEgIFnXbCEgaASrlgiFnXz6MPaK-kyelPH7eTOt9s0-nWtY5YSMAIG5mN4k7dnxX6M-C0AmbO3U9jikPwhBdpp7G9848hK_1c7kXLbqxamlfCbhe_l-kEb8pe5V6mEH3fiIokyxkIyavBLAMlAzSApPTbcYA1r-P9YDwpu9GBIsL1SV4zGLvMwFulKOECQ4" type="image/x-icon">
+    <!-- Custom CSS for Light Green Theme and Animations -->
     <style>
         :root {
             --primary-bg: #e6f4e6;
             --primary-color: #28a745;
             --text-color: #333;
-            --card-bg: #ffffff;
             --footer-bg: #2c3e50;
         }
         html, body {
@@ -31,6 +34,7 @@
         }
         .navbar {
             background-color: var(--primary-color);
+            transition: all 0.3s ease;
         }
         .navbar.scrolled {
             background-color: #218838 !important;
@@ -44,14 +48,94 @@
         .jobs-section {
             padding: 50px 0;
         }
-        .card {
-            margin: 10px;
-            height: 200px;
+        .table-container {
+            max-height: 500px; /* Fits ~10 rows */
+            overflow-y: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        .table {
+            background-color: #ffffff;
+            margin-bottom: 0;
+        }
+        .table th, .table td {
+            text-align: center;
+            vertical-align: middle;
+            padding: 12px;
+        }
+        .table th {
+            background-color: var(--primary-color);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+        .table tbody tr {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .table tbody tr.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        .btn-primary:hover {
+            background-color: #218838;
+        }
+        .adsense-container {
+            margin: 20px auto;
+            max-width: 728px;
+            min-height: 90px;
+            text-align: center;
+        }
+        #job-details {
+            display: none;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease;
+        }
+        #job-details iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            margin-top: 15px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 767px) {
+            .adsense-container {
+                max-width: 100%;
+                padding: 0 15px;
+            }
+            .table-responsive {
+                font-size: 0.85rem;
+            }
+            .table th, .table td {
+                padding: 8px;
+            }
+            .btn-primary {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+            #job-details {
+                margin: 15px;
+                padding: 15px;
+            }
+            #job-details iframe {
+                height: 300px;
+            }
         }
         /* Hover Dropdown Styles */
         .dropdown:hover .dropdown-menu {
@@ -68,71 +152,275 @@
             background-color: #218838;
         }
     </style>
+    <!-- AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body>
     <div class="content-wrapper">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">வேலை தூதகன்</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html#home">முகப்பு</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="index.html#jobs" id="jobsDropdown" role="button" aria-expanded="false">
-                                வேலைகள்
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="jobsDropdown">
-                                <li><a class="dropdown-item" href="government_jobs.html" target="_blank">அரசாங்க வேலைகள்</a></li>
-                                <li><a class="dropdown-item" href="private_jobs.html" target="_blank">தனியார் வேலைகள்</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">வேலை தூதகன்</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html#home">முகப்பு</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="index.html#jobs" id="jobsDropdown" role="button" aria-expanded="false">
+                                    வேலைகள்
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="jobsDropdown">
+                                    <li><a class="dropdown-item" href="government_jobs.html" target="_blank">அரசாங்க வேலைகள்</a></li>
+                                    <li><a class="dropdown-item" href="private_jobs.html" target="_blank">தனியார் வேலைகள்</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </header>
 
         <!-- Government Jobs Section -->
-        <section class="jobs-section">
-            <div class="container">
-                <h2 class="text-center mb-4">அரசாங்க வேலைகள்</h2>
-                <div class="row justify-content-center">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">நிர்வாக அலுவலர்</h5>
-                                <p class="card-text">இடம்: சென்னை | துறை: TNPSC</p>
-                                <p class="card-text">தகுதி: இளநிலை பட்டம்</p>
-                                <a href="#" class="btn btn-primary">இப்போது விண்ணப்பி</a>
-                            </div>
+        <main>
+            <section class="jobs-section">
+                <div class="container">
+                    <h1 class="text-center mb-4">அரசாங்க வேலைகள்</h1>
+                    <article>
+                        <div class="table-responsive table-container">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>வேலை பெயர்</th>
+                                        <th>இடம்</th>
+                                        <th>துறை</th>
+                                        <th>விவரங்கள்</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-job='{
+                                        "title": "நிர்வாக அலுவலர்",
+                                        "location": "சென்னை",
+                                        "department": "TNPSC",
+                                        "description": "தமிழ்நாடு அரசு துறைகளில் நிர்வாகப் பணிகளை மேற்கொள்ள அலுவலர் தேவை.",
+                                        "interview_date": "2025-07-15",
+                                        "application_last_date": "2025-06-30",
+                                        "apply_mode": "Online",
+                                        "apply_link": "https://example.com/apply/tnpsc",
+                                        "pdf_url": "https://example.com/pdf/tnpsc_notification.pdf"
+                                    }'>
+                                        <td>நிர்வாக அலுவலர்</td>
+                                        <td>சென்னை</td>
+                                        <td>TNPSC</td>
+                                        <td><button class="btn btn-primary view-btn" aria-label="நிர்வாக அலுவலர் வேலை விவரங்களைக் காண்க">காண்க</button></td>
+                                    </tr>
+                                    <tr data-job='{
+                                        "title": "ரயில்வே கிளார்க்",
+                                        "location": "இந்தியா முழுவதும்",
+                                        "department": "RRB",
+                                        "description": "ரயில்வே துறையில் கிளார்க் பணிகளுக்கு 12-ஆம் வகுப்பு தகுதி உள்ளவர்கள் விண்ணப்பிக்கலாம்.",
+                                        "interview_date": "2025-08-10",
+                                        "application_last_date": "2025-07-05",
+                                        "apply_mode": "Online",
+                                        "apply_link": "https://example.com/apply/rrb",
+                                        "pdf_url": "https://example.com/pdf/rrb_notification.pdf"
+                                    }'>
+                                        <td>ரயில்வே கிளார்க்</td>
+                                        <td>இந்தியா முழுவதும்</td>
+                                        <td>RRB</td>
+                                        <td><button class="btn btn-primary view-btn" aria-label="ரயில்வே கிளார்க் வேலை விவரங்களைக் காண்க">காண்க</button></td>
+                                    </tr>
+                                    <tr data-job='{
+                                        "title": "வங்கி PO",
+                                        "location": "இந்தியா முழுவதும்",
+                                        "department": "IBPS",
+                                        "description": "வங்கிகளில் நிர்வாகப் பணிகளுக்கு இளநிலை பட்டதாரிகள் விண்ணப்பிக்கலாம்.",
+                                        "interview_date": "2025-09-20",
+                                        "application_last_date": "2025-08-15",
+                                        "apply_mode": "Online",
+                                        "apply_link": "https://example.com/apply/ibps",
+                                        "pdf_url": "https://example.com/pdf/ibps_notification.pdf"
+                                    }'>
+                                        <td>வங்கி PO</td>
+                                        <td>இந்தியா முழுவதும்</td>
+                                        <td>IBPS</td>
+                                        <td><button class="btn btn-primary view-btn" aria-label="வங்கி PO வேலை விவரங்களைக் காண்க">காண்க</button></td>
+                                    </tr>
+                                    <tr data-job='{
+                                        "title": "காவல் உதவி ஆய்வாளர்",
+                                        "location": "தமிழ்நாடு",
+                                        "department": "TNUSRB",
+                                        "description": "தமிழ்நாடு காவல் துறையில் உதவி ஆய்வாளர் பணிக்கு உடல் தகுதி தேவை.",
+                                        "interview_date": "2025-07-25",
+                                        "application_last_date": "2025-06-20",
+                                        "apply_mode": "Online",
+                                        "apply_link": "https://example.com/apply/tnusrb",
+                                        "pdf_url": "https://example.com/pdf/tnusrb_notification.pdf"
+                                    }'>
+                                        <td>காவல் உதவி ஆய்வாளர்</td>
+                                        <td>தமிழ்நாடு</td>
+                                        <td>TNUSRB</td>
+                                        <td><button class="btn btn-primary view-btn" aria-label="காவல் உதவி ஆய்வாளர் வேலை விவரங்களைக் காண்க">காண்க</button></td>
+                                    </tr>
+                                    <tr data-job='{
+                                        "title": "அஞ்சல் உதவியாளர்",
+                                        "location": "இந்தியா முழுவதும்",
+                                        "department": "India Post",
+                                        "description": "அஞ்சல் துறையில் உதவியாளர் பணிக்கு 10-ஆம் வகுப்பு தகுதி உள்ளவர்கள் விண்ணப்பிக்கலாம்.",
+                                        "interview_date": "2025-08-05",
+                                        "application_last_date": "2025-07-10",
+                                        "apply_mode": "Offline",
+                                        "pdf_url": "https://example.com/pdf/india_post_notification.pdf"
+                                    }'>
+                                        <td>அஞ்சல் உதவியாளர்</td>
+                                        <td>இந்தியா முழுவதும்</td>
+                                        <td>India Post</td>
+                                        <td><button class="btn btn-primary view-btn" aria-label="அஞ்சல் உதவியாளர் வேலை விவரங்களைக் காண்க">காண்க</button></td>
+                                    </tr>
+                                    <tr data-job='{
+                                        "title": "வருவாய் ஆய்வாளர்",
+                                        "location": "தமிழ்நாடு",
+                                        "department": "TN Revenue",
+                                        "description": "வருவாய் துறையில் ஆய்வாளர் பணிக்கு இளநிலை பட்டம் தேவை.",
+                                        "interview_date": "2025-09-10",
+                                        "application_last_date": "2025-08-05",
+                                        "apply_mode": "Online",
+                                        "apply_link": "https://example.com/apply/tn_revenue",
+                                        "pdf_url": "https://example.com/pdf/tn_revenue_notification.pdf"
+                                    }'>
+                                        <td>வருவாய் ஆய்வாளர்</td>
+                                        <td>தமிழ்நாடு</td>
+                                        <td>TN Revenue</td>
+                                        <td><button class="btn btn-primary view-btn" aria-label="வருவாய் ஆய்வாளர் வேலை விவரங்களைக் காண்க">காண்க</button></td>
+                                    </tr>
+                                    <tr data-job='{
+                                        "title": "கிராம உதவியாளர்",
+                                        "location": "தமிழ்நாடு",
+                                        "department": "TN Village Admin",
+                                        "description": "கிராம நிர்வாகத்தில் உதவியாளர் பணிக்கு 10-ஆம் வகுப்பு தகுதி உள்ளவர்கள் விண்ணப்பிக்கலாம்.",
+                                        "interview_date": "2025-07-30",
+                                        "application_last_date": "2025-06-25",
+                                        "apply_mode": "Offline",
+                                        "pdf_url": "https://example.com/pdf/tn_village_notification.pdf"
+                                    }'>
+                                        <td>கிராம உதவியாளர்</td>
+                                        <td>தமிழ்நாடு</td>
+                                        <td>TN Village Admin</td>
+                                        <td><button class="btn btn-primary view-btn" aria-label="கிராம உதவியாளர் வேலை விவரங்களைக் காண்க">காண்க</button></td>
+                                    </tr>
+                                    <tr data-job='{
+                                        "title": "SSB கான்ஸ்டபிள்",
+                                        "location": "இந்தியா முழுவதும்",
+                                        "department": "SSB",
+                                        "description": "சஷாஸ்திர சீமா பால் துறையில் கான்ஸ்டபிள் பணிக்கு உடல் தகுதி தேவை.",
+                                        "interview_date": "2025-08-15",
+                                        "application_last_date": "2025-07-20",
+                                        "apply_mode": "Online",
+                                        "apply_link": "https://example.com/apply/ssb",
+                                        "pdf_url": "https://example.com/pdf/ssb_notification.pdf"
+                                    }'>
+                                        <td>SSB கான்ஸ்டபிள்</td>
+                                        <td>இந்தியா முழுவதும்</td>
+                                        <td>SSB</td>
+                                        <td><button class="btn btn-primary view-btn" aria-label="SSB கான்ஸ்டபிள் வேலை விவரங்களைக் காண்க">காண்க</button></td>
+                                    </tr>
+                                    <tr data-job='{
+                                        "title": "UPSC நிர்வாக உதவியாளர்",
+                                        "location": "இந்தியா முழுவதும்",
+                                        "department": "UPSC",
+                                        "description": "மத்திய அரசு துறைகளில் நிர்வாக உதவியாளர் பணிக்கு பட்டதாரிகள் விண்ணப்பிக்கலாம்.",
+                                        "interview_date": "2025-09-05",
+                                        "application_last_date": "2025-08-10",
+                                        "apply_mode": "Online",
+                                        "apply_link": "https://example.com/apply/upsc",
+                                        "pdf_url": "https://example.com/pdf/upsc_notification.pdf"
+                                    }'>
+                                        <td>UPSC நிர்வாக உதவியாளர்</td>
+                                        <td>இந்தியா முழுவதும்</td>
+                                        <td>UPSC</td>
+                                        <td><button class="btn btn-primary view-btn" aria-label="UPSC நிர்வாக உதவியாளர் வேலை விவரங்களைக் காண்க">காண்க</button></td>
+                                    </tr>
+                                    <tr data-job='{
+                                        "title": "நீதித்துறை கிளார்க்",
+                                        "location": "சென்னை",
+                                        "department": "TN Judiciary",
+                                        "description": "தமிழ்நாடு நீதித்துறையில் கிளார்க் பணிக்கு இளநிலை பட்டம் தேவை.",
+                                        "interview_date": "2025-07-20",
+                                        "application_last_date": "2025-06-15",
+                                        "apply_mode": "Offline",
+                                        "pdf_url": "https://example.com/pdf/tn_judiciary_notification.pdf"
+                                    }'>
+                                        <td>நீதித்துறை கிளார்க்</td>
+                                        <td>சென்னை</td>
+                                        <td>TN Judiciary</td>
+                                        <td><button class="btn btn-primary view-btn" aria-label="நீதித்துறை கிளார்க் வேலை விவரங்களைக் காண்க">காண்க</button></td>
+                                    </tr>
+                                    <tr data-job='{
+                                        "title": "தொழில்நுட்ப உதவியாளர்",
+                                        "location": "தமிழ்நாடு",
+                                        "department": "TNEB",
+                                        "description": "மின்சார வாரியத்தில் தொழில்நுட்ப உதவியாளர் பணிக்கு டிப்ளோமா தேவை.",
+                                        "interview_date": "2025-08-25",
+                                        "application_last_date": "2025-07-30",
+                                        "apply_mode": "Online",
+                                        "apply_link": "https://example.com/apply/tneb",
+                                        "pdf_url": "https://example.com/pdf/tneb_notification.pdf"
+                                    }'>
+                                        <td>தொழில்நுட்ப உதவியாளர்</td>
+                                        <td>தமிழ்நாடு</td>
+                                        <td>TNEB</td>
+                                        <td><button class="btn btn-primary view-btn" aria-label="தொழில்நுட்ப உதவியாளர் வேலை விவரங்களைக் காண்க">காண்க</button></td>
+                                    </tr>
+                                    <tr data-job='{
+                                        "title": "கல்வி உதவியாளர்",
+                                        "location": "தமிழ்நாடு",
+                                        "department": "TN Education",
+                                        "description": "பள்ளிகளில் கல்வி உதவியாளர் பணிக்கு 12-ஆம் வகுப்பு தகுதி உள்ளவர்கள் விண்ணப்பிக்கலாம்.",
+                                        "interview_date": "2025-09-15",
+                                        "application_last_date": "2025-08-20",
+                                        "apply_mode": "Offline",
+                                        "pdf_url": "https://example.com/pdf/tn_education_notification.pdf"
+                                    }'>
+                                        <td>கல்வி உதவியாளர்</td>
+                                        <td>தமிழ்நாடு</td>
+                                        <td>TN Education</td>
+                                        <td><button class="btn btn-primary view-btn" aria-label="கல்வி உதவியாளர் வேலை விவரங்களைக் காண்க">காண்க</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
+                    </article>
+                    <!-- Google AdSense Ad Unit -->
+                    <div class="adsense-container">
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-XXX"
+                             data-ad-slot="1234567890"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">ரயில்வே கிளார்க்</h5>
-                                <p class="card-text">இடம்: இந்தியா முழுவதும் | துறை: RRB</p>
-                                <p class="card-text">தகுதி: 12-ஆம் வகுப்பு</p>
-                                <a href="#" class="btn btn-primary">இப்போது விண்ணப்பி</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">வங்கி PO</h5>
-                                <p class="card-text">இடம்: இந்தியா முழுவதும் | துறை: IBPS</p>
-                                <p class="card-text">தகுதி: இளநிலை பட்டம்</p>
-                                <a href="#" class="btn btn-primary">இப்போது விண்ணப்பி</a>
-                            </div>
-                        </div>
+                    <!-- Job Details Panel -->
+                    <div id="job-details" role="region" aria-live="polite">
+                        <h2 id="job-title"></h2>
+                        <p><strong>இடம்:</strong> <span id="job-location"></span></p>
+                        <p><strong>துறை:</strong> <span id="job-department"></span></p>
+                        <p><strong>விளக்கம்:</strong> <span id="job-description"></span></p>
+                        <p><strong>நேர்காணல் தேதி:</strong> <span id="job-interview-date"></span></p>
+                        <p><strong>விண்ணப்ப கடைசி தேதி:</strong> <span id="job-application-last-date"></span></p>
+                        <p><strong>விண்ணப்ப முறை:</strong> <span id="job-apply-mode"></span></p>
+                        <p id="job-apply-link-container" style="display: none;"><strong>விண்ணப்ப இணைப்பு:</strong> <a id="job-apply-link" href="#" target="_blank" aria-label="வேலைக்கு விண்ணப்பிக்கவும்"></a></p>
+                        <h3>அறிவிப்பு PDF</h3>
+                        <iframe id="job-pdf" src="" title="அரசாங்க வேலை அறிவிப்பு PDF"></iframe>
+                        <button class="btn btn-secondary" id="close-details" aria-label="வேலை விவரங்கள் பேனலை மூடு">மூடு</button>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
     </div>
 
     <!-- Footer -->
@@ -143,8 +431,9 @@
     <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
-    <!-- Custom JS for Navbar Scroll -->
+    <!-- Custom JS for Navbar Scroll, Table Animations, and Job Details -->
     <script>
+        // Navbar Scroll Effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
@@ -152,6 +441,53 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+        });
+
+        // Table Row Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const rows = document.querySelectorAll('.table tbody tr');
+            rows.forEach((row, index) => {
+                setTimeout(() => {
+                    row.classList.add('visible');
+                }, index * 200);
+            });
+
+            // Job Details Panel Logic
+            const viewButtons = document.querySelectorAll('.view-btn');
+            const detailsPanel = document.getElementById('job-details');
+            const closeButton = document.getElementById('close-details');
+            const applyLinkContainer = document.getElementById('job-apply-link-container');
+            const applyLink = document.getElementById('job-apply-link');
+
+            viewButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const jobData = JSON.parse(this.closest('tr').dataset.job);
+                    document.getElementById('job-title').textContent = jobData.title;
+                    document.getElementById('job-location').textContent = jobData.location;
+                    document.getElementById('job-department').textContent = jobData.department;
+                    document.getElementById('job-description').textContent = jobData.description;
+                    document.getElementById('job-interview-date').textContent = jobData.interview_date;
+                    document.getElementById('job-application-last-date').textContent = jobData.application_last_date;
+                    document.getElementById('job-apply-mode').textContent = jobData.apply_mode;
+                    document.getElementById('job-pdf').src = jobData.pdf_url;
+
+                    if (jobData.apply_mode === 'Online' && jobData.apply_link) {
+                        applyLink.href = jobData.apply_link;
+                        applyLink.textContent = 'இப்போது விண்ணப்பிக்கவும்';
+                        applyLinkContainer.style.display = 'block';
+                    } else {
+                        applyLinkContainer.style.display = 'none';
+                    }
+
+                    detailsPanel.style.display = 'block';
+                    detailsPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+
+            closeButton.addEventListener('click', function() {
+                detailsPanel.style.display = 'none';
+                document.getElementById('job-pdf').src = ''; // Reset iframe to prevent lingering content
+            });
         });
     </script>
 </body>
